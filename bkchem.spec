@@ -1,16 +1,16 @@
 Summary:	Python 2D chemical structure drawing tool
 Summary(pl):	Narzêdzie do rysowania 2D struktur chemicznych
 Name:		bkchem
-Version:	0.8.1
+Version:	0.9.0
 Release:	1	
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://zirael.org/bkchem/download/%{name}-%{version}.tar.gz
 Source1:	bkchem.desktop
-Patch0:		bkchem-oo.patch
-# Source0-md5:	abde1cb8144ff200ff8b99cb7494106b
+# Source0-md5:	85b89c905af843cb191cc6ab30fe3a4c
 URL:		http://zirael.org/bkchem/index.html
 BuildRequires:	python-devel
+BuildRequires:	python-modules
 Requires:	python
 Requires:	Pmw
 Requires:	python-PyXML
@@ -31,23 +31,23 @@ ale sodipodi i batik tak¿e wy¶wietlaj± je sensownie.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir},%{_iconsdir}}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install images/icon.png $RPM_BUILD_ROOT%{_iconsdir}/bkchem.png
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
 #fix executable
-sed -e "s@$RPM_BUILD_ROOT@@g" $RPM_BUILD_ROOT%{_bindir}/%{name} |\
-	sed -e "s@%{name}.py@%{name}.pyo@g" >$RPM_BUILD_ROOT%{_bindir}/%{name}.new
-mv $RPM_BUILD_ROOT%{_bindir}/%{name}.new $RPM_BUILD_ROOT%{_bindir}/%{name}
+sed -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{_bindir}/%{name}
+sed -e "s@%{name}.py@%{name}.pyo@g" -i $RPM_BUILD_ROOT%{_bindir}/%{name}
+sed -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{py_sitescriptdir}/%{name}/site_config.py
 
 %find_lang BKchem
 
@@ -61,7 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %dir %{py_sitescriptdir}/%{name}
 %{_desktopdir}/%{name}.desktop
+%{_iconsdir}/%{name}.png
 %{py_sitescriptdir}/%{name}/*.py[co]
+%{py_sitescriptdir}/%{name}/site_config.py
 %{py_sitescriptdir}/%{name}/%{name}.py
 %dir %{py_sitescriptdir}/%{name}/plugins
 %{py_sitescriptdir}/%{name}/plugins/*.py[co]
@@ -71,3 +73,5 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/%{name}/oasa/oasa/graph/*.py[co]
 %dir %{py_sitescriptdir}/%{name}/oasa/oasa
 %{py_sitescriptdir}/%{name}/oasa/oasa/*.py[co]
+%dir %{py_sitescriptdir}/%{name}/piddle                                                                                   
+%dir %{py_sitescriptdir}/%{name}/piddle/*.py[co]                                                                          
