@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=BKchem
+Name[pl]=BKchem
+Comment=Two-dimensional molecule drawing program
+Comment[pl]=Program do rysowania dwuwymiarowych cząsteczek
+#Icon=xdrawchem.png
+Exec=bkchem
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Science;Chemistry;
+# vi: encoding=utf-8
