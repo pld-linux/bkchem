@@ -1,0 +1,16 @@
+--- bkchem-0.9.0/bkchem/modes.py	2004-11-24 15:08:14.000000000 +0100
++++ bkchem-0.9.0-new/bkchem/modes.py	2004-12-17 00:35:49.000000000 +0100
+@@ -1654,8 +1654,12 @@
+           
+       self._mark_reaction()
+       
++  def mouse_down2( self, event, modifiers = []):
++    return
+ 
+-
++  def mouse_down3( self, event, modifiers = []):
++    return
++  
+   def _mark_reaction( self):
+     for i in self._items:
+       self.app.paper.delete( i)
