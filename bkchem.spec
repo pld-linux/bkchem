@@ -33,6 +33,7 @@ ale sodipodi i batik tak¿e wy¶wietlaj± je sensownie.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 python setup.py build
