@@ -37,9 +37,9 @@ python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir},%{_iconsdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir},%{_pixmapsdir}}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install images/icon.png $RPM_BUILD_ROOT%{_iconsdir}/bkchem.png
+install images/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/bkchem.png
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
@@ -59,9 +59,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc README RELEASE doc/html
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
-%dir %{py_sitescriptdir}/%{name}
 %{_desktopdir}/%{name}.desktop
-%{_iconsdir}/%{name}.png
+%{_pixmapsdir}/%{name}.png
+%dir %{py_sitescriptdir}/%{name}
 %{py_sitescriptdir}/%{name}/*.py[co]
 %{py_sitescriptdir}/%{name}/site_config.py
 %{py_sitescriptdir}/%{name}/%{name}.py
@@ -73,5 +73,5 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/%{name}/oasa/oasa/graph/*.py[co]
 %dir %{py_sitescriptdir}/%{name}/oasa/oasa
 %{py_sitescriptdir}/%{name}/oasa/oasa/*.py[co]
-%dir %{py_sitescriptdir}/%{name}/piddle                                                                                   
-%dir %{py_sitescriptdir}/%{name}/piddle/*.py[co]                                                                          
+%dir %{py_sitescriptdir}/%{name}/piddle
+%dir %{py_sitescriptdir}/%{name}/piddle/*.py[co]
