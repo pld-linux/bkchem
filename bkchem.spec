@@ -12,6 +12,7 @@ URL:		http://zirael.org/bkchem/index.html
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 Requires:	python
+Requires:	python-devel-tools
 Requires:	Pmw
 Requires:	python-PyXML
 BuildArch:	noarch
