@@ -1,5 +1,4 @@
 # TODO:
-# - pl description
 # - desktop file
 %define		pre	pre2
 Summary:	Python 2D chemical structure drawing tool
@@ -7,23 +6,29 @@ Summary(pl):	Narzêdzie do rysowania 2D struktur chemicznych
 Name:		bkchem
 Version:	0.8.0
 Release:	0.%{pre}.1
+License:	GPL
+Group:		X11/Applications/Science
 Source0:	http://zirael.org/bkchem/download/%{name}-%{version}-pre2.tar.gz
 # Source0-md5:	8280cc1a8b675252b90d565cbf73cc0f
 URL:		http://zirael.org/bkchem/index.html
-License:	GPL
-Group:		X11/Applications/Science
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	python-devel
 Requires:	python
 Requires:	Pmw
 Requires:	python-PyXML
-Buildarch:	noarch
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 BKchem is a free (as in free software :o) chemical drawing program. It
-was concieved and written by Beda Kosata. Supported file formats are
+was conceived and written by Beda Kosata. Supported file formats are
 SVG and CML. The output looks best with the Adobe SVG viewer, but
 sodipodi and batik do a reasonable job as well.
+
+%description -l pl
+BKchem to wolnodostêpny program do rysunków chemicznych. Jego
+pomys³odawc± i autorem jest Beda Kosata. Obs³ugiwane formaty plików to
+SVG i CML. Wyj¶cie wygl±da najlepiej pod przegl±dark± SVG firmy Adobe,
+ale sodipodi i batik tak¿e wy¶wietlaj± je sensownie.
 
 %prep
 %setup -q -n %{name}-%{version}-%{pre}
