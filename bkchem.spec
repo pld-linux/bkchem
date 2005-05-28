@@ -10,6 +10,7 @@ Source1:	%{name}.desktop
 # Source0-md5:	85b89c905af843cb191cc6ab30fe3a4c
 Patch0:		%{name}-reaction_mode.patch 
 URL:		http://zirael.org/bkchem/index.html
+BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 Requires:	python
