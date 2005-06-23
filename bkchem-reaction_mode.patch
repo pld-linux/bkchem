@@ -1,14 +1,5 @@
 --- bkchem-0.9.0-old/bkchem/modes.py	2004-11-24 15:08:14.000000000 +0100
 +++ bkchem-0.9.0/bkchem/modes.py	2004-12-18 23:28:34.247257768 +0100
-@@ -296,7 +296,7 @@
-     # 'C-x' from windoze is in use - 'C-k' instead
-     self.register_key_sequence( 'C-k', lambda : self.app.paper.selected_to_clipboard( delete_afterwards=1))
-     # 'C-a' from windoze is in use - 'C-S-a' instead
--    self.register_key_sequence( 'C-S-a', lambda : self.app.paper.select_all)
-+    self.register_key_sequence( 'C-S-a', lambda : self.app.paper.select_all())
-     # debuging
-     #self.register_key_sequence( 'A-i', self._debug_info_for_focused)
-     #self.register_key_sequence( 'A-d c', self.app.paper._open_debug_console)
 @@ -1654,8 +1654,12 @@
            
        self._mark_reaction()
