@@ -1,5 +1,5 @@
 Summary:	Python 2D chemical structure drawing tool
-Summary(pl):	Narzêdzie do rysowania 2D struktur chemicznych
+Summary(pl):	Narzêdzie do rysowania dwuwymiarowych struktur chemicznych
 Name:		bkchem
 Version:	0.10.2
 Release:	1
