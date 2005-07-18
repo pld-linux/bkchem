@@ -1,14 +1,15 @@
 Summary:	Python 2D chemical structure drawing tool
 Summary(pl):	Narzêdzie do rysowania 2D struktur chemicznych
 Name:		bkchem
-Version:	0.10.1
+Version:	0.10.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://bkchem.zirael.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	80532bbdb8662f7ff9b325a997ddce7e
+# Source0-md5:	9d893f8de1b3f94e92d6e53fede945c9
 Source1:	%{name}.desktop
 URL:		http://bkchem.zirael.org/
+Patch0:		%{name}-setup.py.patch
 BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	python-modules
@@ -31,8 +32,24 @@ pomys³odawc± i autorem jest Beda Kosata. Obs³ugiwane formaty plików to
 SVG i CML. Wyj¶cie wygl±da najlepiej pod przegl±dark± SVG firmy Adobe,
 ale sodipodi i batik tak¿e wy¶wietlaj± je sensownie.
 
+%package plugin-cairo
+Summary:	High quality PDF and PNG export plugin
+Summary(pl):	Wtyczka do tworzenia wysokiej jako¶ci plików PDF i PNG
+Group:		X11/Applications/Science
+Requires:	%{name} = %{version}-%{release}
+Requires:	python-pycairo >= 0.5.1
+
+%description plugin-cairo
+The plugin, that allowes exporting the picture to the high quality PDF
+and PNG files. It uses Cairo and pycario libraries.
+
+%description plugin-cairo -l pl
+Wtyczka umo¿liwiaj±ca exportowanie do plików PDF i PNG, o wysokiej 
+jako¶ci. U¿ywane s± biblioteki Cairo oraz pycairo.
+
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 python setup.py build
@@ -77,3 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/%{name}/oasa/oasa/*.py[co]
 %dir %{py_sitescriptdir}/%{name}/plugins/piddle
 %{py_sitescriptdir}/%{name}/plugins/piddle/*.py[co]
+%exclude %{py_sitescriptdir}/%{name}/plugins/*cairo* 
+
+%files plugin-cairo
+%{py_sitescriptdir}/%{name}/plugins/*cairo*
