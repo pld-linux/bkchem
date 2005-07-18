@@ -97,4 +97,5 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{py_sitescriptdir}/%{name}/plugins/*cairo* 
 
 %files plugin-cairo
+%defattr(644,root,root,755)
 %{py_sitescriptdir}/%{name}/plugins/*cairo*
