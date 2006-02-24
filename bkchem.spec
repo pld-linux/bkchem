@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f BKchem.lang
 %defattr(644,root,root,755)
-%doc README RELEASE doc/html
+%doc README RELEASE doc/*
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
