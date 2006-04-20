@@ -8,5 +8,5 @@ Exec=bkchem
 Terminal=false
 Type=Application
 Encoding=UTF-8
-Categories=Science;Chemistry;
+Categories=Education;Science;Chemistry;
 # vi: encoding=utf-8
