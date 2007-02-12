@@ -1,6 +1,6 @@
 %define	_alpha	pre1
 Summary:	Python 2D chemical structure drawing tool
-Summary(pl):	Narzêdzie do rysowania dwuwymiarowych struktur chemicznych
+Summary(pl.UTF-8):   NarzÄ™dzie do rysowania dwuwymiarowych struktur chemicznych
 Name:		bkchem
 Version:	0.12.0
 Release:	0.%{_alpha}.1
@@ -26,15 +26,15 @@ was conceived and written by Beda Kosata. Supported file formats are
 SVG and CML. The output looks best with the Adobe SVG viewer, but
 sodipodi and batik do a reasonable job as well.
 
-%description -l pl
-BKchem to wolnodostêpny program do rysunków chemicznych. Jego
-pomys³odawc± i autorem jest Beda Kosata. Obs³ugiwane formaty plików to
-SVG i CML. Wyj¶cie wygl±da najlepiej pod przegl±dark± SVG firmy Adobe,
-ale sodipodi i batik tak¿e wy¶wietlaj± je sensownie.
+%description -l pl.UTF-8
+BKchem to wolnodostÄ™pny program do rysunkÃ³w chemicznych. Jego
+pomysÅ‚odawcÄ… i autorem jest Beda Kosata. ObsÅ‚ugiwane formaty plikÃ³w to
+SVG i CML. WyjÅ›cie wyglÄ…da najlepiej pod przeglÄ…darkÄ… SVG firmy Adobe,
+ale sodipodi i batik takÅ¼e wyÅ›wietlajÄ… je sensownie.
 
 %package plugin-cairo
 Summary:	High quality PDF and PNG export plugin
-Summary(pl):	Wtyczka do tworzenia wysokiej jako¶ci plików PDF i PNG
+Summary(pl.UTF-8):   Wtyczka do tworzenia wysokiej jakoÅ›ci plikÃ³w PDF i PNG
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Requires:	python-pycairo >= 0.5.1
@@ -43,9 +43,9 @@ Requires:	python-pycairo >= 0.5.1
 The plugin, that allowes exporting the picture to the high quality PDF
 and PNG files. It uses Cairo and pycario libraries.
 
-%description plugin-cairo -l pl
-Wtyczka umo¿liwiaj±ca exportowanie do plików PDF i PNG, o wysokiej 
-jako¶ci. U¿ywane s± biblioteki Cairo oraz pycairo.
+%description plugin-cairo -l pl.UTF-8
+Wtyczka umoÅ¼liwiajÄ…ca exportowanie do plikÃ³w PDF i PNG, o wysokiej 
+jakoÅ›ci. UÅ¼ywane sÄ… biblioteki Cairo oraz pycairo.
 
 %prep
 %setup -q -n %{name}-%{version}_%{_alpha}
