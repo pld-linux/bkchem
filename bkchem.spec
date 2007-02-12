@@ -1,6 +1,6 @@
 %define	_alpha	pre1
 Summary:	Python 2D chemical structure drawing tool
-Summary(pl.UTF-8):   Narzędzie do rysowania dwuwymiarowych struktur chemicznych
+Summary(pl.UTF-8):	Narzędzie do rysowania dwuwymiarowych struktur chemicznych
 Name:		bkchem
 Version:	0.12.0
 Release:	0.%{_alpha}.1
@@ -34,7 +34,7 @@ ale sodipodi i batik także wyświetlają je sensownie.
 
 %package plugin-cairo
 Summary:	High quality PDF and PNG export plugin
-Summary(pl.UTF-8):   Wtyczka do tworzenia wysokiej jakości plików PDF i PNG
+Summary(pl.UTF-8):	Wtyczka do tworzenia wysokiej jakości plików PDF i PNG
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Requires:	python-pycairo >= 0.5.1
