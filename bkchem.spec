@@ -69,6 +69,8 @@ sed -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{py_sitescriptdir}/%{name}/site
 
 %find_lang BKchem
 
+rm -rf $RPM_BUILD_ROOT%{_docdir}/bkchem
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
