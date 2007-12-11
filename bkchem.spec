@@ -1,13 +1,12 @@
-%define	_alpha	pre2
 Summary:	Python 2D chemical structure drawing tool
 Summary(pl.UTF-8):	Narzędzie do rysowania dwuwymiarowych struktur chemicznych
 Name:		bkchem
 Version:	0.12.0
-Release:	0.%{_alpha}.1
+Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications/Science
-Source0:	http://bkchem.zirael.org/download/%{name}-%{version}_%{_alpha}.tar.gz
-# Source0-md5:	fccbe37aba5600002ca95bab931f1ae9
+Source0:	http://bkchem.zirael.org/download/%{name}-%{version}.tar.gz
+# Source0-md5:	60367b68f65d5783ecc86a0d782409be
 Source1:	%{name}.desktop
 URL:		http://bkchem.zirael.org/
 BuildRequires:	python
@@ -44,11 +43,11 @@ The plugin, that allowes exporting the picture to the high quality PDF
 and PNG files. It uses Cairo and pycario libraries.
 
 %description plugin-cairo -l pl.UTF-8
-Wtyczka umożliwiająca exportowanie do plików PDF i PNG, o wysokiej 
+Wtyczka umożliwiająca eksportowanie do plików PDF i PNG, o wysokiej 
 jakości. Używane są biblioteki Cairo oraz pycairo.
 
 %prep
-%setup -q -n %{name}-%{version}_%{_alpha}
+%setup -q
 
 %build
 %{__python} setup.py build
