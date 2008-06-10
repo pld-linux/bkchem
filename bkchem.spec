@@ -15,6 +15,7 @@ URL:		http://bkchem.zirael.org/
 BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 Requires:	python
 Requires:	python-devel-tools
 Requires:	Pmw
