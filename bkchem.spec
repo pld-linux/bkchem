@@ -1,24 +1,25 @@
 #
-# TODO: some unpackaged files
+# TODO: python unpackaged files: some of them are needed by program. It's impossible to postclean them
 #
 Summary:	Python 2D chemical structure drawing tool
 Summary(pl.UTF-8):	Narzędzie do rysowania dwuwymiarowych struktur chemicznych
 Name:		bkchem
-Version:	0.12.5
+Version:	0.12.6
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications/Science
 Source0:	http://bkchem.zirael.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	affe99c8c581bdef9a74e8608d811da8
+# Source0-md5:	50718a160887985814f5b3b1377b30c9
 Source1:	%{name}.desktop
 URL:		http://bkchem.zirael.org/
-BuildRequires:	python-devel
+BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
-Requires:	python
-Requires:	python-devel-tools
+#BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	Pmw
+Requires:	python
 Requires:	python-PyXML
+Requires:	python-devel-tools
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,9 +31,10 @@ sodipodi and batik do a reasonable job as well.
 
 %description -l pl.UTF-8
 BKchem to wolnodostępny program do rysunków chemicznych. Jego
-pomysłodawcą i autorem jest Beda Kosata. Obsługiwane formaty plików to
-SVG i CML. Wyjście wygląda najlepiej pod przeglądarką SVG firmy Adobe,
-ale sodipodi i batik także wyświetlają je sensownie.
+pomysłodawcą i autorem jest Beda Kosata. Obsługiwane formaty
+plików to SVG i CML. Wyjście wygląda najlepiej pod przeglądarką
+SVG firmy Adobe, ale sodipodi i batik także wyświetlają je
+sensownie.
 
 %package plugin-cairo
 Summary:	High quality PDF and PNG export plugin
@@ -46,7 +48,7 @@ The plugin, that allowes exporting the picture to the high quality PDF
 and PNG files. It uses Cairo and pycario libraries.
 
 %description plugin-cairo -l pl.UTF-8
-Wtyczka umożliwiająca eksportowanie do plików PDF i PNG, o wysokiej 
+Wtyczka umożliwiająca eksportowanie do plików PDF i PNG, o wysokiej
 jakości. Używane są biblioteki Cairo oraz pycairo.
 
 %prep
@@ -73,6 +75,8 @@ sed -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{py_sitescriptdir}/%{name}/site
 
 rm -rf $RPM_BUILD_ROOT%{_docdir}/bkchem
 
+#%%py_postclean
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -97,7 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/%{name}/oasa/oasa/*.py[co]
 %dir %{py_sitescriptdir}/%{name}/plugins/piddle
 %{py_sitescriptdir}/%{name}/plugins/piddle/*.py[co]
-%exclude %{py_sitescriptdir}/%{name}/plugins/*cairo* 
+%{py_sitescriptdir}/*.egg-info
+%exclude %{py_sitescriptdir}/%{name}/plugins/*cairo*
 
 %files plugin-cairo
 %defattr(644,root,root,755)
