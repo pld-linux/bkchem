@@ -4,12 +4,12 @@
 Summary:	Python 2D chemical structure drawing tool
 Summary(pl.UTF-8):	Narzędzie do rysowania dwuwymiarowych struktur chemicznych
 Name:		bkchem
-Version:	0.12.6
+Version:	0.13.0
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications/Science
 Source0:	http://bkchem.zirael.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	50718a160887985814f5b3b1377b30c9
+# Source0-md5:	41c55059794399526f4f6fc74af556bb
 Source1:	%{name}.desktop
 URL:		http://bkchem.zirael.org/
 BuildRequires:	python-devel >= 1:2.5
@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f BKchem.lang
 %defattr(644,root,root,755)
-%doc README RELEASE doc/*
+%doc PKG-INFO README doc/*
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
