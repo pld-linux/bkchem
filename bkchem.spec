@@ -1,7 +1,7 @@
 #
 # TODO: python unpackaged files: some of them are needed by program. It's impossible to postclean them
 #
-%define		_pre	pre1
+%define		_pre	pre2
 Summary:	Python 2D chemical structure drawing tool
 Summary(pl.UTF-8):	Narzędzie do rysowania dwuwymiarowych struktur chemicznych
 Name:		bkchem
@@ -10,7 +10,7 @@ Release:	0.%{_pre}.1
 License:	GPL v2+
 Group:		X11/Applications/Science
 Source0:	http://bkchem.zirael.org/download/%{name}-%{version}-%{_pre}.tar.gz
-# Source0-md5:	5f24701d9700c224c3391b6e54a075b6
+# Source0-md5:	e2a2ec2e4625acdefce1ad6eb2433291
 Source1:	%{name}.desktop
 URL:		http://bkchem.zirael.org/
 BuildRequires:	python-devel >= 1:2.5
@@ -32,10 +32,9 @@ sodipodi and batik do a reasonable job as well.
 
 %description -l pl.UTF-8
 BKchem to wolnodostępny program do rysunków chemicznych. Jego
-pomysłodawcą i autorem jest Beda Kosata. Obsługiwane formaty
-plików to SVG i CML. Wyjście wygląda najlepiej pod przeglądarką
-SVG firmy Adobe, ale sodipodi i batik także wyświetlają je
-sensownie.
+pomysłodawcą i autorem jest Beda Kosata. Obsługiwane formaty plików to
+SVG i CML. Wyjście wygląda najlepiej pod przeglądarką SVG firmy Adobe,
+ale sodipodi i batik także wyświetlają je sensownie.
 
 %package plugin-cairo
 Summary:	High quality PDF and PNG export plugin
@@ -68,11 +67,11 @@ install images/bkchem.png $RPM_BUILD_ROOT%{_pixmapsdir}/bkchem.png
 	--optimize=2
 
 #fix executable
-sed -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{_bindir}/%{name}
-sed -e "s@%{name}.py@%{name}.pyo@g" -i $RPM_BUILD_ROOT%{_bindir}/%{name}
-sed -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{py_sitescriptdir}/%{name}/site_config.py
+%{__sed} -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{_bindir}/%{name}
+%{__sed} -e "s@%{name}.py@%{name}.pyo@g" -i $RPM_BUILD_ROOT%{_bindir}/%{name}
+%{__sed} -e "s@$RPM_BUILD_ROOT@@g" -i $RPM_BUILD_ROOT%{py_sitescriptdir}/%{name}/site_config.py
 
-%find_lang BKchem
+%find_lang BKChem
 
 rm -rf $RPM_BUILD_ROOT%{_docdir}/bkchem
 
@@ -81,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT%{_docdir}/bkchem
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f BKchem.lang
+%files -f BKChem.lang
 %defattr(644,root,root,755)
 %doc PKG-INFO README doc/*
 %attr(755,root,root) %{_bindir}/%{name}
